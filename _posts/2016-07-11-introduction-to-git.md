@@ -1,6 +1,20 @@
 ---
 title: Introduction to Git
-date: 
+date: '2016-07-11 09:16:00'
 layout: post
-draft: true
 ---
+## What is Git?
+
+## How to install Git
+
+### Windows
+
+### Linux
+
+### OSX
+
+## How to use Git
+
+## Going from here
+
+## Further references
