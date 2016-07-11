@@ -15,6 +15,16 @@ layout: post
 
 ## How to use Git
 
+### _Cloning_ a repository
+
+### Working as usual
+
+### _Commiting_ your work locally
+
+### _Pushing_ your work to the cloud
+
+### _Pulling_ others' work from the cloud
+
 ## Going from here
 
 ## Further references
