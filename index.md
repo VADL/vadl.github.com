@@ -1,7 +1,7 @@
 ---
-title: Hello World!
+title: Welcome to VADL
 layout: page
-tagline: Supporting tagline
+tagline: ''
 ---
 {% include JB/setup %}
 
