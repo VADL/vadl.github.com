@@ -67,17 +67,17 @@ When you're ready to commit you need to do three things:
 
 * Update your local copy of the repository, this ensures that you've gotten any changes others have pushed to the repository since the last time you pulled or since when you cloned the repository:
 
-  ```bash
-  $ git pull
-  ```
+```bash
+$ git pull
+```
   
   Or in Github Desktop you simply _sync_.
 
 * Tell git which files you've changed and want to commit:
 
-  ```bash
-  $ git add <files to add>
-  ```
+```bash
+$ git add <files to add>
+```
   
   Note: you can git add multiple times.  On the console, use `git status` to have it tell you what you've committed and what you've changed but haven't committed, and what you've added but not told git to version.
   
@@ -85,9 +85,9 @@ When you're ready to commit you need to do three things:
   
 * Write a commit message and perform the commit:
 
-  ```bash
-  $ git commit -m "<commit message here>"
-  ```
+```bash
+$ git commit -m "<commit message here>"
+```
   
   Or if you're on Github Desktop, just write the message in the text box when you add the files.
 
