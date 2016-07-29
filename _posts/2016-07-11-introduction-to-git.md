@@ -98,9 +98,77 @@ When using the `git@<url>` syntax, it will use any configured ssh keys, otherwis
 
 #### Configuring SSH Keys
 
-If you were to clone a diretory using the 'git@<url>' syntax without any prior setup, you will probablyencounter the following
+If you were to clone a directory using the `git@<url>` syntax without any prior setup, you will probably encounter the following:
 
-'
+```bash
+git clone git@github.com:vadl/agse
+Cloning into 'agse'...
+The authenticity of host 'github.com (192.30.253.112)' can't be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+```
+
+This is because git is trying to authenticate the session using something called [ssh keys](https://wiki.archlinux.org/index.php/SSH_keys). These kes take the form of a private and public key pair. Github needs access to the public key.
+
+The first step is to generate a key pair. Type the following into the terminal:
+
+```bash
+ssh-keygen
+```
+
+Accept the default key location and press enter twice when asked for a passphrase in order to leave it blank. It should look like the following:
+
+```bash
+ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/<username>/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/<username>/.ssh/id_rsa.
+Your public key has been saved in /home/<username>/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:gGJtSsV8BM+7w018d39Ji57F8iO6c0N2GZq3/RY2NhI username@hostname
+The key's randomart image is:
++---[RSA 2048]----+
+|   ooo.          |
+|   oo+.          |
+|  + +.+          |
+| o +   +     E . |
+|  .   . S . . =.o|
+|     . + . . B+@o|
+|      + .   oo*=O|
+|       .   ..+=o+|
+|           o=ooo+|
++----[SHA256]-----+
+```
+
+Congratulations, you now have an ssh key pair residing in `/home/<username>/.ssh` titled _id\_rsa_ and _id\_rsa.pub_. 
+
+The next step is to add the public key (_id\_rsa.pub_) to your github profile. Navigate to your profile on [github.com](https://github.com) and click on _edit profile_. Next, select _SSH and GPG keys_ from the left-hand menu. Click _New SSH Key_ on the top right of the screen, and give it a name (the name doesn't matter). Next, go back to the terminal and enter the following command:
+
+```bash
+cat ~/.ssh/id\_rsa.pub
+```
+You will see a mess of letters and numbers similar to what is below
+
+```bash
+cat ~/.ssh/id\_rsa.pub
+~/.ssh/id_rsa.pub 
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0s+l+kKCjbUtTjfgXRkKQ4V1YPAZ7XFZRYVFk1TyqAmQZvJAy9blU1ROtkcZQ6mMnwWOlu/xiJq8+HpTgrJ58tov4IdEGgNo5AC8z/3xaUfSP/k4g7IIhsf45MXuRbEckyrsv8CsEVasmf1ABzrA2n0aR7155/zB5W9o6fcvzEPPN1DxmltbEOVEeTaGU1Z9W9GhKC4IhbF1f2uCs9eWxYQmyuU9yQkdf0BijypcaxbQibCRUdEows0afYECK/QJxO6oLUsG+JKrKka/tqgULiuiYXoFm8Y0KWVQEswV41KjfGoRcHssW3yStRDqmy4al4SYZAAEHroqWDbM4VReB root@luthadel
+```
+
+Copy everything from `ssh-rsa` to the end of the random string (exlcuding any `user@host` at the end!). Paste this into the _Key_ window in the github profile and you should have something similar to the following image.
+
+![sample profile](../images/git/github_ssh_keys.png){: .center-image }
+
+
 
 ### Working as usual
 
