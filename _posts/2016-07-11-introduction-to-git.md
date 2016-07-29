@@ -5,21 +5,58 @@ layout: post
 ---
 ## What is Git?
 
-Git is a version control system (VCS) which exists as a distributed tree based repository.  It's used for storing and versioning documents and code, and allows you to at any time retrieve any of the files from any of the current or past versions of the repository.  It also has features like file locking to ensure that only one person at a time can make edits to a file, automatic merging for when two users make changes to the same file at the same time but don't conflict with each other, and assisted merging for when two users make changes to the same part of the same file at the same time.  Most importantly Git is useful for never losing your work by not only backing it up in the cloud but by also ensuring that you can always revert back to a pervious version on a per-file/folder/repository basis.
+Git is a version control system (VCS) which exists as a distributed
+tree based repository.  It's used for storing and versioning documents
+and code, and allows you to at any time retrieve any of the files from
+any of the current or past versions of the repository.  It also has
+features like file locking to ensure that only one person at a time
+can make edits to a file, automatic merging for when two users make
+changes to the same file at the same time but don't conflict with each
+other, and assisted merging for when two users make changes to the
+same part of the same file at the same time.  Most importantly Git is
+useful for never losing your work by not only backing it up in the
+cloud but by also ensuring that you can always revert back to a
+pervious version on a per-file/folder/repository basis.
 
 ## How to install Git
 
-If you're working with [Github](http://www.github.com), which you probably are, and you don't want to learn command line interfaces, which you probably don't, then you should just simplify your life and download [Github Desktop](https://desktop.github.com/).  It's available for both Windows and OSX.
+If you're working with [Github](http://www.github.com), which you
+probably are, and you don't want to learn command line interfaces,
+which you probably don't, then you should just simplify your life and
+download [Github Desktop](https://desktop.github.com/).  It's
+available for both Windows and OSX.
 
-If you're on Linux, or would rather learn how to use git from the command line (which is generally faster once you get used to it), then you should simply use Git.  [Here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) is a good link which gives the basic instructions for installing Git under Linux, OSX, and Windows.
+If you're on Linux, or would rather learn how to use git from the
+command line (which is generally faster once you get used to it), then
+you should simply use Git.
+[Here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+is a good link which gives the basic instructions for installing Git
+under Linux, OSX, and Windows.
 
 ## How to use Git
 
-Most of the time you're using Git, you won't notice it.  That's because most of the time you're simply working as usual, occasionally commiting your changes and pushing them into the cloud to back them up.  However, before you can do any of that, you must have a Git repository.
+Most of the time you're using Git, you won't notice it.  That's
+because most of the time you're simply working as usual, occasionally
+commiting your changes and pushing them into the cloud to back them
+up.  However, before you can do any of that, you must have a Git
+repository.
 
 ### Creating a repository
 
-The easiest way to make and host a backed-up accessible git repository is through [Github](http://github.com).  There (as a registered user, free account) you can create your own repositories which are hosted at _http://github.com/${user name}/${repository name}_.  If you have are part of an organization (or create one), you can also create a repository under the organization which will be hosted at _http://github.com/${organization name}/${repository name}_.  For this team, you should be a part of and use the VADL organization, so create any related repositories (that your team members will be using as well) in the VADL organization.  Creating a repository is as easy as pressing the button that says _New Repository_ and giving it a name.  Generally you do want to click the box that says _Initialize this repository with a README_, since that will allow you to immediately start working on it.
+The easiest way to make and host a backed-up accessible git repository
+is through [Github](http://github.com).  There (as a registered user,
+free account) you can create your own repositories which are hosted at
+_http://github.com/${user name}/${repository name}_.  If you have are
+part of an organization (or create one), you can also create a
+repository under the organization which will be hosted at
+_http://github.com/${organization name}/${repository name}_.  For this
+team, you should be a part of and use the VADL organization, so create
+any related repositories (that your team members will be using as
+well) in the VADL organization.  Creating a repository is as easy as
+pressing the button that says _New Repository_ and giving it a name.
+Generally you do want to click the box that says _Initialize this
+repository with a README_, since that will allow you to immediately
+start working on it.
 
 ### _Cloning_ a repository
 
@@ -27,11 +64,15 @@ Once you've created a repository (or if someone else already has, and you've bee
 
 #### Github Desktop
 
-In Github Desktop, this is as simple as clicking in the upper left to clone a new repository and selecting one of the available repositories that it shows you (those are all the repositories to which you have write access).
+In Github Desktop, this is as simple as clicking in the upper left to
+clone a new repository and selecting one of the available repositories
+that it shows you (those are all the repositories to which you have
+write access).
 
 #### Git console
 
-To clone a repository (whether or not you have write access) in git console you have two options, shown here as examples:
+To clone a repository (whether or not you have write access) in git
+console you have two options, shown here as examples:
 
 ```bash
 $ git clone git@github.com:${user/organization name}/${repository name} ${optional folder name}
@@ -54,6 +95,12 @@ git clone https://github.com/vadl/agse AGSE_REPO
 ```
 
 When using the `git@<url>` syntax, it will use any configured ssh keys, otherwise it will ask you for login information.
+
+#### Configuring SSH Keys
+
+If you were to clone a diretory using the 'git@<url>' syntax without any prior setup, you will probablyencounter the following
+
+'
 
 ### Working as usual
 
