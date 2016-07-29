@@ -1,3 +1,8 @@
+.center-image {
+  margin: 0 auto;
+  width: 100%;
+  display: block; }
+
 /*
 HTML5 display definitions from [HTML5 Boilerplate](http://j.mp/rP0wmY)
 
@@ -984,7 +989,7 @@ pre {
     font-size: 30px;
     line-height: normal;
   }
-  .the-header .unit-head .nav-global .logo a:hover {
+v  .the-header .unit-head .nav-global .logo a:hover {
     background-color: transparent;
   }
 }
