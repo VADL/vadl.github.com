@@ -166,7 +166,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0s+l+kKCjbUtTjfgXRkKQ4V1YPAZ7XFZRYVFk1Tyq
 
 Copy everything from `ssh-rsa` to the end of the random string (exlcuding any `user@host` at the end!). Paste this into the _Key_ window in the github profile and you should have something similar to the following image.
 
-![sample profile](/images/git/github\_ssh\_keys.png){: .center-image }
+![sample profile](/images/git/github_ssh_keys.png){: .center-image }
 
 Now, cloning (and pushing/pulling) a repository will be sucessful! There is one more thing we can do though to make the process more streamlined in the future.
 
