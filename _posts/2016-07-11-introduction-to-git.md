@@ -135,7 +135,7 @@ Your identification has been saved in /home/<username>/.ssh/id_rsa.
 Your public key has been saved in /home/<username>/.ssh/id_rsa.pub.
 The key fingerprint is:
 SHA256:gGJtSsV8BM+7w018d39Ji57F8iO6c0N2GZq3/RY2NhI username@hostname
-The key's randomart image is:
+The key\'s randomart image is:
 +---[RSA 2048]----+
 |   ooo.          |
 |   oo+.          |
@@ -154,12 +154,12 @@ Congratulations, you now have an ssh key pair residing in `/home/<username>/.ssh
 The next step is to add the public key (_id\_rsa.pub_) to your github profile. Navigate to your profile on [github.com](https://github.com) and click on _edit profile_. Next, select _SSH and GPG keys_ from the left-hand menu. Click _New SSH Key_ on the top right of the screen, and give it a name (the name doesn't matter). Next, go back to the terminal and enter the following command:
 
 ```bash
-cat ~/.ssh/id\_rsa.pub
+cat ~/.ssh/id_rsa.pub
 ```
 You will see a mess of letters and numbers similar to what is below
 
 ```bash
-cat ~/.ssh/id\_rsa.pub
+cat ~/.ssh/id_rsa.pub
 ~/.ssh/id_rsa.pub 
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0s+l+kKCjbUtTjfgXRkKQ4V1YPAZ7XFZRYVFk1TyqAmQZvJAy9blU1ROtkcZQ6mMnwWOlu/xiJq8+HpTgrJ58tov4IdEGgNo5AC8z/3xaUfSP/k4g7IIhsf45MXuRbEckyrsv8CsEVasmf1ABzrA2n0aR7155/zB5W9o6fcvzEPPN1DxmltbEOVEeTaGU1Z9W9GhKC4IhbF1f2uCs9eWxYQmyuU9yQkdf0BijypcaxbQibCRUdEows0afYECK/QJxO6oLUsG+JKrKka/tqgULiuiYXoFm8Y0KWVQEswV41KjfGoRcHssW3yStRDqmy4al4SYZAAEHroqWDbM4VReB root@luthadel
 ```
@@ -167,6 +167,19 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0s+l+kKCjbUtTjfgXRkKQ4V1YPAZ7XFZRYVFk1Tyq
 Copy everything from `ssh-rsa` to the end of the random string (exlcuding any `user@host` at the end!). Paste this into the _Key_ window in the github profile and you should have something similar to the following image.
 
 ![sample profile](../images/git/github_ssh_keys.png){: .center-image }
+
+That's it, you should be done! Now, cloning (and pushing/pulling) a repository will be sucessful! There is one more thing we can do though to make the process more streamlined in the future.
+
+### Git Global Config
+
+We are going to set up a global username and email for git to use when pushing to github. This will prevent you have having to type in the information every time. Simply type the following into a terminal:
+
+```bash
+git config --global user.name "<Your Name Here>"
+git config --global user.email "<Your Email Here>"
+```
+
+That's it, you done!
 
 
 
