@@ -168,7 +168,7 @@ Copy everything from `ssh-rsa` to the end of the random string (exlcuding any `u
 
 ![sample profile](../images/git/github_ssh_keys.png){: .center-image }
 
-That's it, you should be done! Now, cloning (and pushing/pulling) a repository will be sucessful! There is one more thing we can do though to make the process more streamlined in the future.
+Now, cloning (and pushing/pulling) a repository will be sucessful! There is one more thing we can do though to make the process more streamlined in the future.
 
 ### Git Global Config
 
