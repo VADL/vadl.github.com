@@ -16,14 +16,14 @@ HDMI and LCD abilities. This post will detail the steps necessary to
 take advantage of these otherwise inaccessible pins, as well as
 configure a gpio pin to suit the user's needs.
 
-#Linux Kernel Version
+# Linux Kernel Version
 
 This guide assumes the user's BBB is running _Linux Kernel 4.1.15_. If
 an earlier version is used, such as _3.8.X_, then abundant information
 on configuring the BBB can be found through google and the procedures
 listed in this guide will probably not work.
 
-#BBB Headers and Pinout
+# BBB Headers and Pinout
 
 The BBB has two columns 23 pins each on either side of the board, for
 a total of 96 pins available to the user. The right header is
@@ -51,7 +51,7 @@ header's and pin usage can be seen in the graphics below
 ![P8 Header](/images/bbb/P8Header.png){: .center-image }
 ![P9 Header](/images/bbb/P9Header.png){: .center-image }
 
-##GPIO Numbering Scheme
+## GPIO Numbering Scheme
 
 The gpio pins of the bbb are grouped into 3 groups of 32: _GPIO0_,
 _GPIO1_, and _GPIO2_. An individual pin can be refered to using the
@@ -66,13 +66,13 @@ i.e. GPIO2_24 is `32*2+24`, making it GPIO_88. _If this pin were to be
 referenced anywhere in software, the user would use the number 88, not
 24_
 
-##Overloaded Pins
+## Overloaded Pins
 
 Additional scrutiny of the above header pin layouts shows all the
 possible uses of each individual pin. Any pin highlighted in red is a
 pin that is inaccessible for use as a gpio pin by default, see the notes column for it's initial allocation. As an example, P8\_28, aka GPIO2\_24, aka GPIO\_88, is by default allocated to the `nxp_hdmi_bonelt_pins` group. While it is overloaded in this capacity, no other use can be made of this pin. Multiple modes are available for each pin, and setting these modes wil be discussed in a later section.
 
-##Recap of Numbering Schemes
+## Recap of Numbering Schemes
 
 As a recap, _each gpio pin on the BBB has three different numbering schemes associated with it!*
 
@@ -82,26 +82,26 @@ As a recap, _each gpio pin on the BBB has three different numbering schemes asso
 
 Only the last scheme, the gpio number, is used in software!
 
-#Configuring Accessible GPIO Pins
+# Configuring Accessible GPIO Pins
 
-#Accessing Inaccessible Pins
+# Accessing Inaccessible Pins
 
-##Pin Modes
+## Pin Modes
 
-##Device Tree Overlay
+## Device Tree Overlay
 
-##BBB Capes and Cape Manager
+## BBB Capes and Cape Manager
 
-##DTC And Compiling Custom Capes
+## DTC And Compiling Custom Capes
 
-##Disabling Default Capes
+## Disabling Default Capes
 
-##Enabling Custom Capes
+## Enabling Custom Capes
 
-#Related Concepts
+# Related Concepts
 
-##PRU
+## PRU
 
-##Analog I/O
+## Analog I/O
 
-##Serial and UART Communication
+## Serial and UART Communication
