@@ -66,8 +66,61 @@ you want to enter mathematical equations, references, or citations.
 
 ### How to include references
 
+Anywhere you have a `\label{label_name}`, e.g.
+
+```latex
+\label{simple_label}
+\label{sec:fluid_dynamics}
+\label{fig:fluid_flow}
+\label{table:experimental_results}
+```
+
+in any of your documents, you can easily reference them using that
+same label, e.g.
+
+```latex
+Object \ref{simple_label}
+Section \ref{sec:fluid_dynamics}
+Figure \ref{fig:fluid_flow}
+Table \ref{table:experimental_results}
+```
+
 ### How to include citations
+
+Assuming you have a bibliography file (`.bib`), that has references of
+the form:
+
+```latex
+@article{fractionated_spacecraft,
+	tite={Assessing the fractionated spacecraft concept},
+	author={Mathieu, Charlotte and Wiegel, AL},
+	journal={AIAA Paper},
+	volume={7212},
+	year={2006}
+}
+@book{fundamentals_astrodynamics,
+	title={Fundamentals of Astrodynamics},
+	author={Bate, R.R. and Mueller, D.D. and White, J.E.},
+	isbn={9780486600611},
+	lccn={73157430},
+	series={Dover Books on Aeronautical Engineering Series},
+	year={1971},
+	publisher={Dover Publications}
+}
+```
+
+then you can cite them anywhere in your documents as:
+
+```latex
+\cite{fundamentals_astrodynamics} talks about the fundamentals of
+astrodynamics. More recently, \cite{fractionated_spacecraft} discussed
+and analyzed the concepts of fractionated spacecraft flying in
+formation.
+```
 
 ## Going from here
 
 ## Further references
+
+* [LaTeX Wiki 1](http://en.wikibooks.org/wiki/LaTeX)
+* [LaTeX Wiki 2](http://latex.wikia.com/wiki/Main_Page)
