@@ -60,7 +60,11 @@ start working on it.
 
 ### _Cloning_ a repository
 
-Once you've created a repository (or if someone else already has, and you've been given access by them or through a shared organization), you can **clone** the repository onto your computer, which downloads the entire repository (and its history), compressed of course, into a folder of your choosing.  
+Once you've created a repository (or if someone else already has, and
+you've been given access by them or through a shared organization),
+you can **clone** the repository onto your computer, which downloads
+the entire repository (and its history), compressed of course, into a
+folder of your choosing.
 
 #### Github Desktop
 
