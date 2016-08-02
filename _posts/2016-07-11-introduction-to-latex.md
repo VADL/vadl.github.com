@@ -27,6 +27,11 @@ formatting and layout are not touched at all when editing the text, so
 users are free to write and let the style file take care of all the
 formatting.
 
+Additionally, certain things like references (to figures, sections,
+etc.), figure/table numbers, and citations are simpler and easier to
+manage (i.e. they don't ever change and you can be certain they're
+up-to-date).
+
 Finally, LaTeX is also useful because you can include one file inside
 other files. This allows you to break each section or chapter of a
 long document up into separate files. This feature becomes especially
@@ -49,6 +54,10 @@ conflicts at all.
 
 ### Writing LaTeX
 
+Writing LaTeX is for the most part the same as writing regular text
+because that is all it is. Where things change a little bit is when
+you want to enter mathematical equations, references, or citations.
+
 #### Converting from Markdown into LaTeX
 
 ### Compiling LaTeX into PDF
@@ -56,6 +65,8 @@ conflicts at all.
 ### Installing Packages
 
 ### How to include references
+
+### How to include citations
 
 ## Going from here
 
