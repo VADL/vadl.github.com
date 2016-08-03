@@ -133,7 +133,7 @@ gpio_set_value(pin,1);
 
 ### Pin Modes
 
-![GPIO_Bits](/images/bbb/GPIO_Bits.png)
+![GPIO_Bits](/images/bbb/GPIO_Bits.png){: .center-image }
 
 ### Device Tree Overlay
 
