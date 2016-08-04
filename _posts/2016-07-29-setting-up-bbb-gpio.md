@@ -131,22 +131,122 @@ gpio_set_value(pin,1);
 
 ## Accessing Inaccessible Pins
 
+Before going into the details of configuring inaccessible pins, it is
+necessary to briefly go over the inner workings of the BBB and touch
+on concepts such as pin modes, the device tree and its overlays, and
+how to interact with it.
+
 ### Pin Modes
+
 
 ![GPIO_Bits](/images/bbb/GPIO_Bits.png){: .center-image }
 
-### Device Tree Overlay
+### Device Tree 
+
+[Here](https://learn.adafruit.com/introduction-to-the-beaglebone-black-device-tree/overview
+(Outdated)) is a good overview of what exactly the device tree
+is. _BEWARE, THIS LINK IS OUTDATED AND IS NO LONGER COMPLETELY ACCURATE!_ 
+
+The Linux Device tree controls the configuration of pins: mux mode,
+direction, pullup/pulldown, etc. It is a generic, standardized way of
+dealing with constantly updating hardware configurations. In short, it
+describes the hardware in a system. It is the linux version of ARM
+board files.
+
+The device tree is compiled into a `.dtb` file that is then loaded
+upon the kernel's startup. All specified pins and peripherals are
+loaded and configured for use in the system.
 
 
-### BBB Capes and Cape Manager
 
-### DTC And Compiling Custom Capes
+### Cape Manager and Device Tree Overlays
 
-14 character limit to cape names!
+As mentioned in the previous section, the device tree is loaded when
+the kernel starts. It would be a very long and tedious process if, in
+order to make any changes to the device tree, one were required to
+modify the device tree, recompile it, and restart the device. Luckily,
+the BBB's cape manager comes to the rescue. The cape manager allows
+the modification of parts of the device tree _at runtime_ by loading
+_overlays_ that enable peripherals or mux pins to a specific function.
 
-### Disabling Default Capes
+To see what device overlays are currently loaded on the device:
 
-### Enabling Custom Capes
+```bash
+cat /sys/devices/platform/bone_capemgr/slots
+```
+
+As an example, one might see the following:
+
+```bash
+root@node31:~# cat /sys/devices/platform/bone_capemgr/slots
+0: PF----  -1 
+1: PF----  -1 
+2: PF----  -1 
+3: PF----  -1 
+4: P-O-L-   0 Override Board Name,00A0,Override Manuf,BB-ADC
+5: P-O-L-   1 Override Board Name,00A0,Override Manuf,gpio_88
+```
+
+This shows that two overlays, BB-ADC and gpio_88, have been loaded by the cape manager.
+
+In order to check if an overlay has successfully changed the pins modes of the target pins, utilize the following command:
+
+```bash
+cat /sys/kernel/debug/pinctrl/44e10800.pinmux/pins
+```
+
+`/sys/kernel/debug/pinctrl/44e10800.pinmux/pins` will provide the pin
+number, the pin's physical memory address, and the current mode to
+which the pin has been muxed. 
+
+```bash
+cat /sys/kernel/debug/pinctrl/44e10800.pinmux/pingroups | less
+````
+
+`/sys/kernel/debug/pinctrl/44e10800.pinmux/pingroups` provides a list of all "claimed" pins, such as pins that are configured and reserved via overlays.
+
+### DTC And Compiling Custom Overlays
+
+In order to make custom overlays, it in necessary to install the device
+tree overlay compiler made and maintained by Robert Nelson. It can be
+found at
+[https://github.com/beagleboard/bb.org-overlays](https://github.com/beagleboard/bb.org-overlays). For
+ease of use, we have forked the current version at
+[https://github.com/VADL/bb.org-overlays](https://github.com/VADL/bb.org-overlays),
+so that as long as you are running the _4.1.15_ kernel, compatibility
+is not an issue.
+
+To install the compiler, perform the following steps.
+
+1. clone the dtc repo
+```bash
+git clone https://github.com/vadl/bb.org-overlays
+cd ./bb.org-overlays
+```
+
+2. Run the dtc-overlay script
+```bash
+./dtc-overlay.sh
+```
+
+After installation, the dtc compiler can be called on a .dts file to
+produce the corresponding .dtbo overlay file. For an example overlay
+called _sample\_overlay.dts_:
+
+```bash
+dtc -O dtb -o /lib/firmware/sample_overlay-00A0.dtbo -b 0 -@ sample_overlay.dts
+```
+
+Be sure to put the new .dtbo file into `/lib/firmware` so that it is visible to the BBB os.
+
+One minor yet crucial tidbit of knowledge to remember is that the overlay
+name cannot exceed 14 characters! If this limit is exceeded then it
+will not be able to be enabled by the BBB os.
+
+
+### Disabling Default Overlays
+
+### Enabling and Disabling Custom Overlays
 
 ## Related Concepts
 
@@ -154,12 +254,19 @@ gpio_set_value(pin,1);
 
 Reading and writing the gpio pins through the file system as detailed
 above is a relatively slow process, capable of read/write frequencies
-of ~50 Hz. An alternative is to utilize the BBB's built in
+in the low hundreds of Hz. An alternative is to utilize the BBB's built in
 Programmable Realtime Units (PRU's). PRU's are independent units
 completely separate from the BBB OS, and can allow I/O at up to 20
-kHz. While this guide does not detail how to use a PRU, don't forget
+MSPS. While this guide does not detail how to use a PRU, don't forget
 it exists!
+
+[A GitHub repo supporting PRU use can be found here](https://github.com/beagleboard/am335x_pru_package)
+
 
 ### Analog I/O
 
 ### Serial and UART Communication
+
+##Links
+
+A good writeup about BBB Overlays and the cape manager can be found [here](http://www.thing-printer.com/cape-manager-is-back-baby/)
