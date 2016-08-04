@@ -138,14 +138,36 @@ how to interact with it.
 
 ### Pin Modes
 
+As seen in the above graphics detailing the P8 and P9 headers, each
+pin can be configured to one out of 8 possible modes. For our
+purposes, it is important to note that mode7 is always the GPIO
+configuration for every pin. 
+
+The pin mode for any given pin is stored in 7 bits using the following convention.
 
 ![GPIO_Bits](/images/bbb/GPIO_Bits.png){: .center-image }
 
+Notice the example configurations under the table. The bits values are
+listed in Hexadecimal form, so that the two digits following "0x"
+contain the values of all 7 bits. The last digit of the pair contains
+the values of bits 0,1,2, and 3. As such, in order to be in mode7
+(GPIO) bits 0,1, and 2 are all 1, giving a possible value of either 7
+or F for the last hex digit. (Binary of either 0111 or 1111). The
+first digit of the pair contains the values of bits 4,5, and 6 (with
+the most significant bit being a constant 0). If the pin is configured
+as an output, then the possible values of this bit are 0 and 1 (0000
+and 0001) depending on if pull down or pull up is selected. If the pin
+is an input, the possible values are 2 and 3 (0010 and 0011), again
+depending on the pullup/down setting
+
+The pin mode of each pin is configured in what is called a device tree
+overlay, which will be discussed in detail in a later section.
+
 ### Device Tree 
 
-[Here](https://learn.adafruit.com/introduction-to-the-beaglebone-black-device-tree/overview
-(Outdated)) is a good overview of what exactly the device tree
-is. _BEWARE, THIS LINK IS OUTDATED AND IS NO LONGER COMPLETELY ACCURATE!_ 
+[Here](https://learn.adafruit.com/introduction-to-the-beaglebone-black-device-tree/overview)
+is a good overview of what exactly the device tree is. _BEWARE, THIS
+LINK IS for the 3.8 KERNEL AND IS NO LONGER COMPLETELY ACCURATE!_
 
 The Linux Device tree controls the configuration of pins: mux mode,
 direction, pullup/pulldown, etc. It is a generic, standardized way of
@@ -187,9 +209,10 @@ root@node31:~# cat /sys/devices/platform/bone_capemgr/slots
 5: P-O-L-   1 Override Board Name,00A0,Override Manuf,gpio_88
 ```
 
-This shows that two overlays, BB-ADC and gpio_88, have been loaded by the cape manager.
+This shows that two overlays, _BB-ADC_ and _gpio\_88_, have been loaded by the cape manager.
 
-In order to check if an overlay has successfully changed the pins modes of the target pins, utilize the following command:
+In order to check if an overlay has successfully changed the pins
+modes of the target pins, utilize the following commands:
 
 ```bash
 cat /sys/kernel/debug/pinctrl/44e10800.pinmux/pins
@@ -219,12 +242,14 @@ is not an issue.
 To install the compiler, perform the following steps.
 
 1. clone the dtc repo
+
 ```bash
 git clone https://github.com/vadl/bb.org-overlays
 cd ./bb.org-overlays
 ```
 
 2. Run the dtc-overlay script
+
 ```bash
 ./dtc-overlay.sh
 ```
@@ -237,11 +262,14 @@ called _sample\_overlay.dts_:
 dtc -O dtb -o /lib/firmware/sample_overlay-00A0.dtbo -b 0 -@ sample_overlay.dts
 ```
 
-Be sure to put the new .dtbo file into `/lib/firmware` so that it is visible to the BBB os.
+Be sure to put the new .dtbo file into `/lib/firmware` so that it is
+visible to the BBB os. _ALWAYS APPEND '-00A0' TO THE END OF A DTBO
+FILE. THIS IS NECESSARY FOR THE FILE TO BE LOADED PROPERLY BY THE CAPE
+MANAGER!_
 
 One minor yet crucial tidbit of knowledge to remember is that the overlay
-name cannot exceed 14 characters! If this limit is exceeded then it
-will not be able to be enabled by the BBB os.
+name cannot exceed 14 characters. If this limit is exceeded then it
+will not be able to be enabled by the cape manager.
 
 
 ### Disabling Default Overlays
