@@ -110,7 +110,7 @@ cat value
 ```
 
 ```bash
-echo 1 value
+echo 1 > value
 ```
 
 ### Access using C++ library
