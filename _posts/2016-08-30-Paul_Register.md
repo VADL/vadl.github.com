@@ -20,6 +20,9 @@ layout: post
 
 * Report oversight (overall editing/proofreading of reports)
 
+
+* Would be interested in learning CFD or getting more involved in the mechanical aspects
+
 # Skills
 
 * MATLAB
