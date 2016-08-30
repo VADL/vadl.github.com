@@ -8,10 +8,10 @@ layout: post
 
 * NASA Ames Research Center
 
- * Asteroid fragmentation modeling with emphasis on risk assessment
+..* Asteroid fragmentation modeling with emphasis on risk assessment
 
 
- * Publication in Icarus
+..* Publication in Icarus
 
 # Interests
 
