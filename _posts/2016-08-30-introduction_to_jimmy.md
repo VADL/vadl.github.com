@@ -5,10 +5,12 @@ layout: post
 ---
 
 # Interests
+
 * Interest 1
 * Interest 2
 * Interest 3
 
 # Skills
+
 * Skill 1
 * Skill 2
