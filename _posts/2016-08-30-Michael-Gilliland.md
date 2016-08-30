@@ -6,6 +6,17 @@ categories: interests
 layout: post
 ---
 
+Past Experience:
+
+Cisco Systems - Unified Computing System Manufacturing Engineering Intern 
+
+SMU Biomedical Robotics and Instrumentation Lab Assistant (5 Yrs)
+	-Work on humanoid arm tremor-simulator, tremor-dampening orthotics, and 		 robotically assembled steerable surgical cannula
+
+
+
+
+VADL Specific Interests:
 
 Electromechanical systems
 
