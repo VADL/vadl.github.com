@@ -4,9 +4,7 @@ date: '2016-08-30 21:57:00'
 layout: post
 ---
 
-# Experience
-
-* VADL
+# VADL Experience
 
   * Outreach - curriculum development, report writing, and logistical coordinating.
 
