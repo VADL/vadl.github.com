@@ -1,5 +1,5 @@
 ---
-title: Introduction to Jimmy
+title: Introduction to git
 date: '2016-08-30 09:16:00'
 layout: post
 ---

@@ -6,11 +6,14 @@ layout: post
 
 # Interests
 
-* Interest 1
-* Interest 2
-* Interest 3
+* Fabrication of rocket components and assembly of subsystems and systems
+* Cold gas thruster payload development and testing
+* KSP simulation
 
 # Skills
 
-* Skill 1
-* Skill 2
+* MATLAB data analysis
+* PTC Creo Pro/E
+* Aerodynamics (con-di nozzles, fluids, flight mechanics, etc.)
+* Rapid prototyping design tools (3D printers, drilling, soldering, etc.)
+
