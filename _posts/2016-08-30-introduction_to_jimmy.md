@@ -1,6 +1,6 @@
 ---
 title: Introduction to Jimmy
-date: '2016-08-30 09:16:00'
+date: '2016-08-31 00:17:00'
 layout: post
 ---
 
