@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Welcome to VADL"
+title: "Dustin Howser"
 description: ""
-category: 
+category: Members
 tags: []
 ---
 {% include JB/setup %}
