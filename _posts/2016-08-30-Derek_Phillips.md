@@ -34,3 +34,7 @@ layout: post
 * Creo: 3D CAD, machine drawings, exploded views, bill of materials, etc
 
 * Currently taking machining, also work in the design studio and am comfortable with rapid prototyping, drilling, sawing, soldering, dremels, etc.
+
+Test1 | Test2
+---|---
+Content1 | Content2
