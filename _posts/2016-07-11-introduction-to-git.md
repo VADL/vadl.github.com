@@ -243,6 +243,8 @@ $ git pull
 
 ## Going from here
 
+![This is the desktop app](\images\git\github_desktop.png)
+
 ## Further references
 
 * [Git Guide](http://rogerdudler.github.io/git-guide/)
