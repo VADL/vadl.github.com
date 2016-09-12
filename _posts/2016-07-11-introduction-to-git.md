@@ -243,7 +243,7 @@ $ git pull
 
 ## Going from here
 
-![This is the desktop app\label{fig:github_desktop}](\images\git\github_desktop.png)
+
 
 ## Further references
 
