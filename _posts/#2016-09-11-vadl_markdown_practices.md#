@@ -1,0 +1,13 @@
+---
+layout: post
+title: "VADL_Markdown_Practices"
+description: ""
+category: 
+tags: []
+---
+# Overview
+This post lists current writing practices 
+
+
+
+{% include JB/setup %}
