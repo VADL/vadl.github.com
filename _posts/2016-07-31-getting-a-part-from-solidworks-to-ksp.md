@@ -2,7 +2,7 @@
 layout: post
 title: "Getting a part from SolidWorks to KSP"
 description: ""
-category: tutorial
+category: KSP
 tags: [solidworks,ksp,unity]
 ---
 
