@@ -26,13 +26,13 @@ listed in this guide will probably not work.
 
 ## BBB Headers and Pinout
 
-The BBB has two columns 23 pins each on either side of the board, for
-a total of 96 pins available to the user. The right header is
+The BBB has two 23 pin columns on each side of the board, for
+a total of 92 pins available to the user. The right header is
 designated as P8 while the left is designated P9. Pay careful
 attention to the orientation of the BBB in reference to the pinout
 numbers, else you risk mis-wiring the board and potentially causing
-irreversible damage. Physical pins are numbering in the following
-manner `PX_Y` where `X` is the header where the pin is located (8 or
+irreversible damage. Physical pins are numbered in the following
+manner, `PX_Y`, where `X` is the header where the pin is located (8 or
 9) and `Y` is the location of the pin with that header. Pins _P8\_1_
 and _P9\_1_ are located at the top right of each header. Notice that
 the left column of each header are all the odd pins while the right
@@ -71,11 +71,16 @@ referenced anywhere in software, the user would use the number 88, not
 
 Additional scrutiny of the above header pin layouts shows all the
 possible uses of each individual pin. Any pin highlighted in red is a
-pin that is inaccessible for use as a gpio pin by default, see the notes column for it's initial allocation. As an example, P8\_28, aka GPIO2\_24, aka GPIO\_88, is by default allocated to the `nxp_hdmi_bonelt_pins` group. While it is overloaded in this capacity, no other use can be made of this pin. Multiple modes are available for each pin, and setting these modes wil be discussed in a later section.
+pin that is inaccessible for use as a gpio pin by default, see the
+notes column for it's initial allocation. As an example, P8\_28, aka
+GPIO2\_24, aka GPIO\_88, is by default allocated to the
+`nxp_hdmi_bonelt_pins` group. While it is overloaded in this capacity,
+no other use can be made of this pin. Multiple modes are available for
+each pin, and setting these modes wil be discussed in a later section.
 
 ### Recap of Numbering Schemes
 
-As a recap, _each gpio pin on the BBB has three different numbering schemes associated with it!
+As a recap, _each gpio pin on the BBB has three different numbering schemes associated with it!_
 
 1. The physical pin location, in the form of `PX_Y` (P8\_28)
 2. The gpio name, in the form of `GPIOX_Y` (GPIO2\_24)
@@ -85,13 +90,24 @@ Only the last scheme, the gpio number, is used in software!
 
 ## Configuring Accessible GPIO Pins
 
+Once a GPIO pin is accessible (either by default or by configuring a
+device tree overlay as detailed below), it is very easy to intereact
+with it directly from the terminal. First, simply for ease of life,
+enter the following command to temporarily switch to root for this
+example.
+
 ```bash
 sudo su
 ```
 
+We interact with BBB pins via a set of files that are read/written
+to. To reach the directory where these files are located, enter the
+following.
+
 ```bash
 cd /sys/class/gpio
 ```
+
 
 ```bash
 echo 27 > export
@@ -290,11 +306,18 @@ it exists!
 
 [A GitHub repo supporting PRU use can be found here](https://github.com/beagleboard/am335x_pru_package)
 
+Ken Shirrif has a blog post on the PRU [here](http://www.righto.com/2016/08/pru-tips-understanding-beaglebones.html)
 
 ### Analog I/O
 
 ### Serial and UART Communication
 
-##Links
+## Links
 
-A good writeup about BBB Overlays and the cape manager can be found [here](http://www.thing-printer.com/cape-manager-is-back-baby/)
+A writeup about BBB Overlays and the cape manager can be found [here](http://www.thing-printer.com/cape-manager-is-back-baby/)
+
+Ken Shirrif's blog has a great post on the [BBB GPIO]( http://www.righto.com/2016/08/the-beaglebones-io-pins-inside-software.html)
+
+In addition to providing many of the graphics used in this document,
+[Derek Molly has extensive documentation on all things BBB](http://exploringbeaglebone.com/)
+
