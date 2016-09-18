@@ -1,6 +1,7 @@
 ---
 title: Introduction to git
 date: '2016-08-30 09:16:00'
+category: 'tutorial'
 layout: post
 ---
 ## What is Git?
