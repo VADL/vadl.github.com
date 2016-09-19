@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Using the BBB's PRUs"
+description: ""
+category: 
+tags: []
+---
+{% include JB/setup %}
