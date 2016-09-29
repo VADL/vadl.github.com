@@ -3,7 +3,7 @@ layout: post
 title: "Using the BBB's PRUs"
 description: ""
 category: tutorial
-tags: [BBB,PRU]
+tags: [bbb,pru]
 ---
 {% include JB/setup %}
 
