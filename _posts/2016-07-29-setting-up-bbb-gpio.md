@@ -287,6 +287,13 @@ One minor yet crucial tidbit of knowledge to remember is that the overlay
 name cannot exceed 14 characters. If this limit is exceeded then it
 will not be able to be enabled by the cape manager.
 
+To enable the overlay, type the following
+
+```bash
+echo sample_overlay > /sys/devices/platform/bone_capemgr/slots
+```
+
+Note that the name of the cape in this command is just sample\_overlay, not sample|_overlay.dtbo
 
 ### Disabling Default Overlays
 
