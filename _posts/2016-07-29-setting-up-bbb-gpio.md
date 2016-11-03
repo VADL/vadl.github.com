@@ -295,6 +295,12 @@ echo sample_overlay > /sys/devices/platform/bone_capemgr/slots
 
 Note that the name of the cape in this command is just sample\_overlay, not sample|_overlay.dtbo
 
+To set the overlay to enable at boot, add the cape name in `/etc/default/capemgr`
+
+```bash
+cape=[comma delimited cape names]
+```
+
 ### Disabling Default Overlays
 
 ### Enabling and Disabling Custom Overlays
