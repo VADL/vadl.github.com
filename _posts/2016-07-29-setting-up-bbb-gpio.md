@@ -301,6 +301,8 @@ To set the overlay to enable at boot, add the cape name in `/etc/default/capemgr
 cape=[comma delimited cape names]
 ```
 
+Documentation on this [can be found here](http://elinux.org/Beagleboard:BeagleBoneBlack_Debian#Loading_custom_capes)
+
 ### Disabling Default Overlays
 
 ### Enabling and Disabling Custom Overlays
